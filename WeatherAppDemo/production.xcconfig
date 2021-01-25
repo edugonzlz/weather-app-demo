@@ -1,0 +1,6 @@
+// APP INFO
+APP_NAME = WeatherApp
+BUNDLE_IDENTIFIER = com.edugonzlz.WeatherAppDemo
+
+// KEYS
+OPEN_WEATHER_MAP_APPID = 61fa5c0663e197ff714324c1f6c0728d
