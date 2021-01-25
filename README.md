@@ -1,8 +1,8 @@
-#Weather Demo Project
+# Weather Demo Project
 
 Weather Demo Project is a little wheather app for present some programming concepts for iOS.
 
-###App features:
+### App features:
 
 - Displays the current air quality of Munich (lat = 48.13743, lon = 11.57549), as well as a forecast. 
 - Air quality data can be obtained via OpenWeatherMap
@@ -12,13 +12,13 @@ Weather Demo Project is a little wheather app for present some programming conce
 - The whole screen is scrollable
 - Tap on either current or forecast will display a detail view, listing all air components and their values
 
-###Notes:
+### Notes:
 - Use Swift 5.3
 - Don't use third party libraries
 - Use Viper architecture
 - Use SOLID and Clean architecture concepts
 
-###File structure:
+### File structure:
 - Application: Contains funcionality about app start and app state if necessary (user login state, app state...) 
 - Global: Constants for use in the app
 - Sections: Screens constructed with VIPER
