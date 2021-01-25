@@ -12,9 +12,11 @@ class ListWireframe: ListWireframeType {
     func setup() -> UIViewController {
         let viewController = ListViewController()
         let presenter = ListPresenter(wireframe: self, viewController: viewController)
-        let urlSession = URLSession(configuration: URLSessionConfiguration.default)
-        let requestManager = RequestManager(urlSession: urlSession)
+        let requestManager = RequestManager()
         let interactor = ListInteractor(forecastService: ForecastService(requestManager: requestManager))
+        let urlSession = interactor.getURLSesssion()
+        
+        requestManager.urlSession = urlSession
         viewController.presenter = presenter
         presenter.interactor = interactor
         interactor.output = presenter

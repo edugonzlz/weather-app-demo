@@ -1,6 +1,9 @@
 import Foundation
 
 protocol RequestManagerType {
+    
+    var urlSession: URLSession { get set }
+
     func configureRequest(method: HTTPMethod, url: URL, parameters: [String: Any]?, headers: [String: String]?) -> URLRequest
     
     func requestEntity<T: Decodable>(urlRequest: URLRequest, completion: @escaping (Result<T, Error>) -> Void)
@@ -8,11 +11,7 @@ protocol RequestManagerType {
 
 class RequestManager: RequestManagerType {
     
-    private var urlSession: URLSession
-    
-    init(urlSession: URLSession) {
-        self.urlSession = urlSession
-    }
+    var urlSession: URLSession = URLSession.shared
 
     func configureRequest(method: HTTPMethod, url: URL, parameters: [String: Any]?, headers: [String: String]?) -> URLRequest {
         var request =  URLRequest(url: url)

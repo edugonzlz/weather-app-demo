@@ -11,7 +11,7 @@ protocol ListInteractorOutput: class {
     func presentError(title: String, message: String)
 }
 
-class ListInteractor {
+class ListInteractor: URLSessionConfigurable {
    
     // MARK: - Public
     weak var output: ListInteractorOutput?
