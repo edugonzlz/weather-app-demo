@@ -18,12 +18,13 @@ class ListInteractor: URLSessionConfigurable {
     
     // MARK: - private
     private let coordinates = Config.demoCoordinates
-    private let queue = OperationQueue()
+    private var queue = OperationQueue()
 
     private let forecastService: ForecastService
     
     init(forecastService: ForecastService) {
         self.forecastService = forecastService
+        queue.maxConcurrentOperationCount = 1
     }
 }
 
@@ -32,7 +33,7 @@ extension ListInteractor: ListInteractorType {
         queue.addOperation {
             self.getCityData(coordinates: self.coordinates)
         }
-        queue.addOperation {
+        queue.operations.first?.completionBlock = {
             self.getForecast(coordinates: self.coordinates)
         }
     }
