@@ -20,9 +20,9 @@ class ListInteractor: URLSessionConfigurable {
     private let coordinates = Config.demoCoordinates
     private var queue = OperationQueue()
 
-    private let forecastService: ForecastService
+    private let forecastService: ForecastServiceType
     
-    init(forecastService: ForecastService) {
+    init(forecastService: ForecastServiceType) {
         self.forecastService = forecastService
         queue.maxConcurrentOperationCount = 1
     }
